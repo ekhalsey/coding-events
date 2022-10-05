@@ -10,14 +10,19 @@
 
 <p th:unless="${events} and ${events.size()}">No Events!</p>
 
-<table class="table table-striped">
+<table style="width: auto; margin: 0 auto" class="table table-striped table-bordered">
     <thead>
         <tr>
             <th>Name</th>
+            <th>Description</th>
+            <th>Address</th>
         </tr>
     </thead>
-    <tr th:each="event : ${events}">
-        <td th:text="${event}">event name</td>
+    <tr th:each="eventMap : ${events}">
+        <td th:text="${eventMap.key}">event name</td>
+        <td th:text="${eventMap.value}">event description</td>
+        <td th:replace="fragments :: address">event address</td>
+<!--        <td><img th:src="https://www.pinclipart.com/picdir/middle/398-3988990_how-to-draw-a-rainbow-rainbow-sketch-clipart.png"/></td>-->
     </tr>
 </table>
 
