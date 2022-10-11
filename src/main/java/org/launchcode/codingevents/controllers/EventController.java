@@ -49,4 +49,14 @@ public class EventController {
         return "events/delete";
     }
 
+    @PostMapping("delete")
+    public String deleteEvent(@RequestParam(required = false) int[] eventIds) {
+        if(eventIds != null) {
+            for (int id : eventIds) {
+                EventData.removeEvent(id);
+            }
+        }
+        return "redirect:";
+    }
+
 }
