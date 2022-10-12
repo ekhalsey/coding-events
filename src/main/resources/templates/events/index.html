@@ -16,12 +16,16 @@
             <th>Name</th>
             <th>Description</th>
             <th>Address</th>
+            <th>Edit</th>
         </tr>
     </thead>
     <tr th:each="event : ${events}">
         <td th:text="${event.name}">event name</td>
         <td th:text="${event.description}">event description</td>
         <td th:replace="fragments :: address">event address</td>
+        <td>
+            <a th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a>
+        </td>
         <!--        <td><img th:src="https://www.pinclipart.com/picdir/middle/398-3988990_how-to-draw-a-rainbow-rainbow-sketch-clipart.png"/></td>-->
     </tr>
 <!--    <tr th:each="eventMap : ${events}"> THIS WAS FOR THYMELEAF EXERCISES -->
