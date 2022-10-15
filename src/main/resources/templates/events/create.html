@@ -11,14 +11,44 @@
 <form action="/events/create" method="post">
     <div class="form-group">
         <label>Name
-            <input type="text" name="name" class="form-control">
+            <input th:field="${event.name}" class="form-control">
         </label>
+        <p class="error" th:errors="${event.name}"></p>
     </div>
     <br>
     <div class="form-group">
         <label>Description
-            <input type="text" name="description" class="form-control">
+            <input th:field="${event.description}" class="form-control">
         </label>
+        <p class="error" th:errors="${event.description}"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Contact Email
+            <input th:field="${event.contactEmail}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.contactEmail}"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Event Location
+            <input th:field="${event.location}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.location}"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Registration Required
+            <input type="checkbox" value="true" name="registrationRequired" checked>
+        </label>
+        <p class="error" th:errors="${event.registrationRequired}"></p>
+    </div>
+    <br>
+    <div class="form-group">
+        <label>Number of Attendees
+            <input th:field="${event.numberOfAttendees}" class="form-control">
+        </label>
+        <p class="error" th:errors="${event.numberOfAttendees}"></p>
     </div>
     <br>
     <div class="form-group">
