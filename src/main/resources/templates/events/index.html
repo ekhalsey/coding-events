@@ -15,14 +15,15 @@
         <tr>
             <th>Name</th>
             <th>Description</th>
-            <th>Address</th>
+            <th>Email</th>
             <th>Edit</th>
         </tr>
     </thead>
     <tr th:each="event : ${events}">
         <td th:text="${event.name}">event name</td>
         <td th:text="${event.description}">event description</td>
-        <td th:replace="fragments :: address">event address</td>
+        <td th:text="${event.contactEmail}">event email</td>
+
         <td>
             <a th:href="@{/events/edit/{id}(id=${event.id})}">Edit</a>
         </td>
